@@ -27,10 +27,13 @@ nginx-http-flv-module只是nginx的一个扩展模块，nginx带不带nginx-http
 
 ### 放置源码
 1. 创建一个文件夹，如nginx，里面存放nginx的源码，后续步骤都以nginx文件夹为例说明
+
 ![Img](https://github.com/qedsd/nginx-http-flv-Windows/blob/main/img/1.png?raw=true)
 2. nginx内创建一个文件夹objs，并再在objs内创建一个lib文件夹
+
 ![Img](https://github.com/qedsd/nginx-http-flv-Windows/blob/main/img/2.png?raw=true)
 3. 在lib文件夹内放置pcre2、zlib、openssl、nginx-http-flv-module的源码，按文件夹区分开。文件夹命名随意，后续步骤自己对应好哪个文件夹存了哪个库源码即可。
+
 ![Img](https://github.com/qedsd/nginx-http-flv-Windows/blob/main/img/3.png?raw=true)
 
 ### 安装相关工具
@@ -52,6 +55,7 @@ nginx-http-flv-module只是nginx的一个扩展模块，nginx带不带nginx-http
 安装完vs后，命令行执行路径
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build
 下的vcvarsall.bat，并传入参数x64，具体操作可参考如下
+
 ![Img](https://github.com/qedsd/nginx-http-flv-Windows/blob/main/img/4.png?raw=true)
 
 #### MSYS2
@@ -59,10 +63,12 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build
 
 #### Perl
 Perl特指perl语言的编译器，装ActivePerl 或者 Strawberry Perl其中一个即可。建议Strawberry Perl，我装ActivePerl老是提示环境异常导致失败，Strawberry Perl一次过。装完无需其他操作，但需要检查一下环境变量，如果没有自动配置好，需要自己手动配置。
+
 ![Img](https://github.com/qedsd/nginx-http-flv-Windows/blob/main/img/5.png?raw=true)
 
 #### GnuWin(Sed)
 安装完后需要自己添加环境变量
+
 ![Img](https://github.com/qedsd/nginx-http-flv-Windows/blob/main/img/6.png?raw=true)
 
 ## 生成Makefile
@@ -97,6 +103,7 @@ Perl特指perl语言的编译器，装ActivePerl 或者 Strawberry Perl其中一
 
 ```
 回车执行脚本并等待创建
+
 ![Img](https://github.com/qedsd/nginx-http-flv-Windows/blob/main/img/7.png?raw=true)
 
 - 注意每个库的源码文件夹要对应上放置源码步骤的文件夹
@@ -104,13 +111,16 @@ Perl特指perl语言的编译器，装ActivePerl 或者 Strawberry Perl其中一
 --add-module=objs/lib/nginx-http-flv-module
 去掉即可，其他pcre\zlib\openssl同理
 3. 执行完后会在objs文件夹下出现Makefile及一些其他文件即为完成
+
 ![Img](https://github.com/qedsd/nginx-http-flv-Windows/blob/main/img/8.png?raw=true)
 
 ## 编译
 打开Developer PowerShell for VS 2019并cd到nginx文件夹，然后执行nmake等待编译
+
 ![Img](https://github.com/qedsd/nginx-http-flv-Windows/blob/main/img/9.png?raw=true)
 编译耗时取决于电脑和你添加的模块，几分钟到半小时都可能。编译完成后会在objs文件夹下生成nginx.exe，至此即完成了整个nginx的编译。
 至于nginx其他文件夹及配置文件
+
 ![Img](https://github.com/qedsd/nginx-http-flv-Windows/blob/main/img/10.png?raw=true)
 编译并不会一并创建，可以使用已有的，整个nginx核心在于nginx.exe，其他都通用。
 
