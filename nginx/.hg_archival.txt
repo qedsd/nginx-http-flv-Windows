@@ -1,0 +1,6 @@
+repo: 4eff17414a4378feaba42876e0d3a6a50646cdee
+node: ba5cf8f73a2d0a3615565bf9545f3d65216a0530
+branch: default
+latesttag: release-1.23.1
+latesttagdistance: 10
+changessincelatesttag: 10
